@@ -9,7 +9,7 @@ angular.module('starter.services', [])
     "start_time": "2010-01-01T04:04:00+01:00",
     "end_time": "2010-01-01T04:05:00+01:00",
      "Type": "Color",
-     "content": "ffee55",
+     "content": "096A09",
      "comment": "."};
 
 
@@ -28,5 +28,19 @@ angular.module('starter.services', [])
       }
       return null;
     }
+
   };
+})
+.factory('Tockens', function(){
+  var checkTocken = function(id){
+    var exist = true;
+
+    return exist;
+  };
+
+
+  return{
+    checkTocken: checkTocken,
+
+  }
 });

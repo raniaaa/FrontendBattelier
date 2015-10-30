@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -20,6 +20,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       // org.apache.cordova.statusbar required
       StatusBar.styleLightContent();
     }
+
+
   });
 })
 
@@ -44,7 +46,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/dash',
     views: {
       'content': {
-        templateUrl: 'templates/tab-dash.html',
+        templateUrl: 'templates/dash.html',
         controller: 'DashCtrl'
       }
     }
@@ -54,13 +56,31 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       url: '/home',
       views: {
         'content': {
-          templateUrl: 'templates/tab-home.html',
+          templateUrl: 'templates/home.html',
           controller: 'HomeCtrl'
         }
       }
-    });
+    })
+    .state('login', {
+          url: '/login',
+          views: {
+            'content': {
+              templateUrl: 'templates/login.html',
+              controller: 'LoginCtrl'
+            }
+          }
+        })
+        .state('synchro', {
+              url: '/synchro',
+              views: {
+                'content': {
+                  templateUrl: 'templates/synchro.html',
+                  controller: 'SynchroCtrl'
+                }
+              }
+            });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/dash');
+  $urlRouterProvider.otherwise('/synchro');
 
 });
